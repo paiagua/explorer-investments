@@ -1,0 +1,6 @@
+User-agent: *
+Disallow:
+Sitemap: https://goldenvisashub.com/sitemap.xml
+Sitemap: https://goldenvisashub.com/data/feed.rss
+
+

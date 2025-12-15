@@ -1,0 +1,135 @@
+// cookie
+import Head from 'next/head'
+import App from '@/app/cookie/app'
+import Script from 'next/script'
+
+const cookieSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://goldenvisashub.com#organization",
+      "name": "Explorer Investments",
+      "url": "https://goldenvisashub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://goldenvisashub.com/social-share.jpg"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/explorerinvestments",
+        "https://twitter.com/ExplorerInvest"
+      ],
+      "description": "Explorer Investments is Portugal’s largest private equity firm, managing €1.8B in assets with over 20 years of experience. The firm is regulated by CMVM and offers Golden Visa investment access with institutional-grade transparency.",
+      "foundingDate": "2005",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lisbon",
+        "addressCountry": "PT"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "Investor Relations",
+          "name": "André Bandeira",
+          "email": "ab@explorerinvestments.com",
+          "url": "https://goldenvisashub.com"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "Investor Relations",
+          "name": "Maria Campos Silva",
+          "email": "mcs@explorerinvestments.com",
+          "url": "https://goldenvisashub.com"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Cookie Policy",
+      "url": "https://goldenvisashub.com/cookie",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Golden Visa Explorer Investments",
+        "url": "https://goldenvisashub.com"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://goldenvisashub.com/social-share.jpg"
+      },
+      "about": {
+        "@id": "https://goldenvisashub.com#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem","position": 1,"name": "Home","item": "https://goldenvisashub.com/"},
+        {"@type": "ListItem","position": 2,"name": "Cookie Policy","item": "https://goldenvisashub.com/cookie"}
+      ]
+    }
+  ]
+}
+
+export const metadata = {
+  title: "Cookie Policy | Explorer Investments",
+  description:
+    "Read Explorer Investments’ Cookie Policy to understand how we use cookies, manage consent, and process related data on Golden Visa Explorer Investments.",
+  keywords:
+    "Cookie Policy, Cookies, Consent, Explorer Investments, Golden Visa Explorer Investments",
+  robots: "noindex, nofollow", // páginas legais normalmente não devem indexar
+  openGraph: {
+    title: "Cookie Policy | Explorer Investments",
+    description:
+      "Official Cookie Policy for Golden Visa Explorer Investments by Explorer Investments.",
+    url: "https://goldenvisashub.com/cookie",
+    type: "website",
+    images: ["https://goldenvisashub.com/social-share.jpg"]
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@ExplorerInvest",
+    title: "Cookie Policy | Explorer Investments",
+    description:
+      "Understand how cookies are used on Golden Visa Explorer Investments by Explorer Investments.",
+    images: ["https://goldenvisashub.com/social-share.jpg"]
+  }
+}
+
+export default function CookiePolicyPage() {
+  return (
+    <>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords} />
+        <meta name="robots" content={metadata.robots} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta property="og:description" content={metadata.openGraph.description} />
+        <meta property="og:url" content={metadata.openGraph.url} />
+        <meta property="og:type" content={metadata.openGraph.type} />
+        <meta property="og:image" content={metadata.openGraph.images[0]} />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content={metadata.twitter.card} />
+        <meta name="twitter:site" content={metadata.twitter.site} />
+        <meta name="twitter:title" content={metadata.twitter.title} />
+        <meta name="twitter:description" content={metadata.twitter.description} />
+        <meta name="twitter:image" content={metadata.twitter.images[0]} />
+
+        {/* Canonical */}
+        <link rel="canonical" href={metadata.openGraph.url} />
+      </Head>
+
+      <Script
+        id="ld-json-cookie"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(cookieSchema) }}
+      />
+
+      <App />
+    </>
+  )
+}
