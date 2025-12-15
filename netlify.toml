@@ -1,10 +1,11 @@
 [build]
-  base = "Client"
+  # Removemos a linha 'base' porque o ficheiro já está na pasta correta
   command = "npm ci && npm run build"
+  # O plugin Next.js geralmente trata disto, mas definir '.next' ajuda a evitar erros
   publish = ".next"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-  
+
 [build.environment]
   NODE_VERSION = "20"
