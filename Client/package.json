@@ -6,7 +6,6 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    
     "lint": "next lint"
   },
   "dependencies": {
@@ -31,11 +30,11 @@
     "jwt-decode": "^4.0.0",
     "libphonenumber-js": "^1.12.10",
     "lucide-react": "^0.525.0",
-    "next": "15.4.2",
-    "react": "19.1.0",
+    "next": "^15.4.8",
+    "react": "^19.2.1",
     "react-calendly": "^4.4.0",
     "react-countup": "^6.5.3",
-    "react-dom": "19.1.0",
+    "react-dom": "^19.2.1",
     "react-helmet": "^6.1.0",
     "react-phone-input-2": "^2.15.1",
     "react-share": "^5.2.2",
